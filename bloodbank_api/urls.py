@@ -1,10 +1,10 @@
 
 from django.urls import path
 
-from bloodbank_api.views import donor_api, stock_api
+from bloodbank_api.views import DonorInfoList, StockList
 
 
 urlpatterns = [
-    path('stock/', stock_api),
-    path('donor/', donor_api),
+    path('stock/', StockList.as_view()),
+    path('donor/', DonorInfoList.as_view()),
 ]
