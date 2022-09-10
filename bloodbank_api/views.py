@@ -1,12 +1,17 @@
 from django.http import HttpResponse
 from rest_framework import generics
 from bloodbank.models import DonorInfo, Stock
-from .serializers import DonorInfoSerializer, StockSerializer
+from .serializers import DonorInfoSerializer, StockCreateSerializer, StockSerializer
 
 
 class StockList(generics.ListAPIView):
     queryset = Stock.objects.all()
     serializer_class = StockSerializer
+
+
+class StockCreate(generics.CreateAPIView):
+    queryset = Stock.objects.all()
+    serializer_class = StockCreateSerializer
 
 
 class DonorInfoList(generics.ListAPIView):
